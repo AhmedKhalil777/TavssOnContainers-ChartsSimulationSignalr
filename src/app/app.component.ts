@@ -9,6 +9,24 @@ import { from } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+
+  public chartOptions: any ={
+    scaleShowVerticalLines: true,
+    responsive: true,
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }; 
+  public chartLabels : string[] = ["Real Time Data for The Chart"];
+  public chartType : string = 'bar';
+  public chartLegend :boolean = false;
+  public colors : any[] =[{backgroundColor : '#5491DA' }, { backgroundColor: '#E74C3C' },
+   { backgroundColor: '#82E0AA' }, { backgroundColor: '#E5E7E9' }];
+   
   constructor(public signalRService : SignalRService ,  private Http :HttpClient){};
 
   ngOnInit(){
